@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { useDispatch } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
 import ScreenWrapper from "../components/ScreenWrapper";
 import { completeOnboarding } from "../redux/slices/furnitureSlice";
 import Button from "../components/Button";
@@ -10,9 +11,11 @@ import { wp, hp } from "../utils/responsive";
 
 export const IntroScreen = () => {
   const dispatch = useDispatch();
+  const navigation = useNavigation<any>();
 
   const handleGetStarted = () => {
     dispatch(completeOnboarding());
+    navigation.replace("MainApp");
   };
 
   return (
