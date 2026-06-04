@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Furniture E-Commerce Mobile Application
 
 An elegant, production-grade mobile shopping application built on **React Native** and **Expo SDK 54**. The app delivers a high-performance shopping experience conforming to Figma design specifications. It features a fully responsive layout system, offline state persistence, date-grouped collections, dynamic image carousels, and real-time state tracking.
@@ -103,3 +104,7 @@ To run compile checks and ensure clean typing:
 npx tsc --noEmit
 ```
 *Current compile status: **0 errors, 100% clean.***
+=======
+# Product-world
+Products World is a modern React Native mobile application that allows users to explore products in both list and grid views with a clean, Figma-inspired UI. The app efficiently handles large datasets and organizes products using date-wise grouping such as Today, Yesterday, and Older for better user experience.
+>>>>>>> 04c8c19de7f60bb3372f39173fda72e813bb2636
