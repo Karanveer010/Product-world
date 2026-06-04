@@ -1,23 +1,44 @@
-<<<<<<< HEAD
-# Furniture E-Commerce Mobile Application
+# Product World Mobile Application
 
-An elegant, production-grade mobile shopping application built on **React Native** and **Expo SDK 54**. The app delivers a high-performance shopping experience conforming to Figma design specifications. It features a fully responsive layout system, offline state persistence, date-grouped collections, dynamic image carousels, and real-time state tracking.
+A modern React Native mobile application built on **React Native** and **Expo SDK 54** that allows users to explore products in both list and grid views with a clean, Figma-inspired UI.
 
 ---
 
-## 🚀 Key Features
+## 🚀 Quick Start (Installation & Setup)
+
+Follow these steps to set up the project locally:
+
+### 1. Prerequisites
+Ensure you have **Node.js** (LTS version) installed on your machine.
+
+### 2. Install Dependencies
+Run the following command in the root directory of the project to install all required packages:
+```bash
+npm install
+```
+
+### 3. Run the App
+Start the Expo development server:
+```bash
+npm start
+# or
+npx expo start
+```
+Scan the QR code with your phone (using the Expo Go app) to run it on your device, or press `a` for Android Emulator / `i` for iOS Simulator.
+
+---
+
+## 🛠️ Key Features
 
 ### 1. Dynamic SectionList Date-Grouping
-- Groups loaded products chronologically under distinct headers: `"Today"`, `"Yesterday"`, `"17 April"`, `"16 April"`, and `"15 April"`.
-- Solves the React Native `SectionList` double-column limitation by grouping grid items in pairs of two (`[[p1, p2], [p3]]`) and rendering them inside a row wrapper, maintaining a clean 2-column visual grid.
+- Groups loaded products chronologically under distinct headers: `"Today"`, `"Yesterday"`, and other past dates formatted dynamically (e.g. `"30 April 2025"`).
+- Solves the React Native `SectionList` double-column limitation by grouping grid items in pairs of two (`[[p1, p2], [p3]]`) and rendering them inside a row wrapper to maintain a clean 2-column visual grid.
 
-### 2. Production-Grade API Pagination
-- Queries the backend dynamically using `skip` and `limit` query parameters.
-- Features a loading footer spinner with feedback text (`"Loading more items..."`) and an end-of-list indicator (`"No more data available"`).
-- Guarded with scroll-locking mechanisms to prevent duplicate requests.
+### 2. Full Dataset Integration
+- Queries the backend dynamically to load the entire product catalog at once, offering seamless sorting, search, and details navigation.
 
 ### 3. Product Image Paging Carousel
-- Features a horizontal `ScrollView` with `pagingEnabled={true}` in the detail screen, allowing users to swipe through all available product images.
+- Uses a horizontal `FlatList` with `pagingEnabled={true}` in the detail screen, allowing users to swipe through all available product images.
 - Updates indicator dots dynamically using an `onScroll` event listener tracking offset calculations.
 
 ### 4. Dynamic Redux Profile Bindings
@@ -88,15 +109,7 @@ src/
 
 ---
 
-## ⚡ Running & Verification
-
-### Run Metro Bundler
-Start the local Expo development server:
-```bash
-npm run start
-# or
-npx expo start
-```
+## ⚡ Verification
 
 ### TypeScript Validation
 To run compile checks and ensure clean typing:
@@ -104,7 +117,3 @@ To run compile checks and ensure clean typing:
 npx tsc --noEmit
 ```
 *Current compile status: **0 errors, 100% clean.***
-=======
-# Product-world
-Products World is a modern React Native mobile application that allows users to explore products in both list and grid views with a clean, Figma-inspired UI. The app efficiently handles large datasets and organizes products using date-wise grouping such as Today, Yesterday, and Older for better user experience.
->>>>>>> 04c8c19de7f60bb3372f39173fda72e813bb2636
