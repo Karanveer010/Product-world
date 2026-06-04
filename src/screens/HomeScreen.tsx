@@ -365,6 +365,13 @@ export const HomeScreen = () => {
                 </Text>
               </View>
             }
+            ListFooterComponent={
+              items?.length > 0 ? (
+                <View style={styles.footerLoader}>
+                  <Text style={styles.noMoreText}>No more products available</Text>
+                </View>
+              ) : null
+            }
             refreshControl={
               <RefreshControl
                 refreshing={loading}
