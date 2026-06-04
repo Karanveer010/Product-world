@@ -12,8 +12,8 @@ const likesSlice = createSlice({
   name: "likes",
   initialState,
   reducers: {
-    toggleLike(state, action: PayloadAction<string>) {
-      const id = action.payload;
+    toggleLike(state, action: PayloadAction<string | number>) {
+      const id = String(action.payload);
       const index = state.likedIds.indexOf(id);
       if (index > -1) {
         state.likedIds.splice(index, 1);

@@ -99,17 +99,19 @@ export const ProductDetailScreen = ({ route }: any) => {
   };
 
   const handleAddToBag = () => {
-    dispatch(addToCart(item.id));
+    const idStr = String(item.id);
+    dispatch(addToCart(idStr));
     if (qty > 1) {
-      dispatch(updateQuantity({ id: item.id, quantity: qty }));
+      dispatch(updateQuantity({ id: idStr, quantity: qty }));
     }
     Alert.alert("Success", `Added ${qty} ${item.title} to your bag.`);
   };
 
   const handleBuyNow = () => {
-    dispatch(addToCart(item.id));
+    const idStr = String(item.id);
+    dispatch(addToCart(idStr));
     if (qty > 1) {
-      dispatch(updateQuantity({ id: item.id, quantity: qty }));
+      dispatch(updateQuantity({ id: idStr, quantity: qty }));
     }
     navigation.navigate("MainApp", { screen: "Bag" });
   };

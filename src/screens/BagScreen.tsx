@@ -27,7 +27,7 @@ export const BagScreen = () => {
 
   const detailedCartItems = cartItems
     ?.map((cartItem) => {
-      const details = furnitureItems.find((p) => p.id === cartItem.id);
+      const details = furnitureItems.find((p) => String(p.id) === String(cartItem.id));
       return details ? { ...details, quantity: cartItem.quantity } : null;
     })
     ?.filter((item): item is NonNullable<typeof item> => item !== null);
