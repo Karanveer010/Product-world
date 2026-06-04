@@ -39,7 +39,7 @@ export const AppNavigator = () => {
   };
   const initialRouteName = onboardingCompleted ? "MainApp" : "Intro";
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={initialRouteName}>
         <Stack.Screen name="Intro" component={IntroScreen} />
         <Stack.Screen name="MainApp" component={TabNavigator} />
