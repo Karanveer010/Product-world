@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator();
 
 export const AppNavigator = () => {
   const onboardingCompleted = useSelector(
-    (state: RootState) => state.furniture.onboardingCompleted
+    (state: RootState) => state?.furniture?.onboardingCompleted ?? false
   );
 
   // const linking = {
@@ -37,19 +37,15 @@ export const AppNavigator = () => {
       },
     },
   };
-
+  const initialRouteName = onboardingCompleted ? "MainApp" : "Intro";
   return (
     <NavigationContainer linking={linking}>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {!onboardingCompleted ? (
-          <Stack.Screen name="Intro" component={IntroScreen} />
-        ) : (
-          <>
-            <Stack.Screen name="MainApp" component={TabNavigator} />
-            <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
-          </>
-        )}
+      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={initialRouteName}>
+        <Stack.Screen name="Intro" component={IntroScreen} />
+        <Stack.Screen name="MainApp" component={TabNavigator} />
+        <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
       </Stack.Navigator>
+
     </NavigationContainer>
   );
 };
