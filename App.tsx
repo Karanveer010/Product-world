@@ -9,21 +9,21 @@ import { useEffect } from 'react';
 export default function App() {
 
 
-  useEffect(() => {
-    const handleUrl = (url: string | null) => {
-      if (url) {
-        console.log('Deep Link =>', url);
-      }
-    };
+  // useEffect(() => {
+  //   const handleUrl = (url: string | null) => {
+  //     if (url) {
+  //       console.log('Deep Link =>', url);
+  //     }
+  //   };
 
-    Linking.getInitialURL().then(handleUrl);
+  //   Linking.getInitialURL().then(handleUrl);
 
-    const sub = Linking.addEventListener('url', ({ url }) => {
-      handleUrl(url);
-    });
+  //   const sub = Linking.addEventListener('url', ({ url }) => {
+  //     handleUrl(url);
+  //   });
 
-    return () => sub.remove();
-  }, []);
+  //   return () => sub.remove();
+  // }, []);
 
   return (
     <Provider store={store}>

@@ -36,7 +36,7 @@ export const ProductDetailScreen = ({ route }: any) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   let price = item?.price || routeItem?.price || "0.00"
 
-  
+
   const loadDetail = useCallback(async () => {
     if (!routeItem?.id) return;
     setDetailLoading(true);
@@ -44,7 +44,7 @@ export const ProductDetailScreen = ({ route }: any) => {
       const response = await fetchProductDetail(routeItem?.id);
       if (response?.status == 200) {
         const responseData = response?.data?.[0];
-        
+
         setItem(responseData);
       } else {
         console.log("No data found");
@@ -71,7 +71,7 @@ export const ProductDetailScreen = ({ route }: any) => {
         list = [singleImage];
       }
     }
-    
+
     if (list?.length === 1) {
       list = [list[0], list[0], list[0]];
     } else if (list?.length === 2) {
@@ -119,9 +119,9 @@ export const ProductDetailScreen = ({ route }: any) => {
 
   return (
     <ScreenWrapper disableTopInset={true} disableBottomInset={true}>
-      
+
       <View style={styles.imageSection}>
-        
+
         <FlatList
           data={imagesList}
           horizontal
@@ -140,7 +140,6 @@ export const ProductDetailScreen = ({ route }: any) => {
                     : { uri: "https://via.placeholder.com/300" }
                 }
                 style={styles.image}
-                cachePolicy="memory-disk"
                 contentFit="contain"
                 transition={300}
               />
@@ -159,7 +158,7 @@ export const ProductDetailScreen = ({ route }: any) => {
         </View>
       </View>
 
-      
+
       <View style={styles.detailsSection}>
         {imagesList?.length > 1 && (
           <View style={styles.pagination}>
@@ -178,7 +177,7 @@ export const ProductDetailScreen = ({ route }: any) => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.scrollContent}
         >
-          
+
           <View style={styles.infoRow}>
             <View style={styles.titleCol}>
               <Text style={styles.title}>{item?.title}</Text>
@@ -189,7 +188,7 @@ export const ProductDetailScreen = ({ route }: any) => {
               <Text style={styles.priceLabel}>Price</Text>
               <Text style={styles.price}>₱ {price ? Number(price)?.toFixed(2) : "0.00"}</Text>
 
-              
+
               <View style={styles.quantityRow}>
                 <TouchableOpacity
                   onPress={handleDecrement}
@@ -212,7 +211,7 @@ export const ProductDetailScreen = ({ route }: any) => {
             </View>
           </View>
 
-          
+
           <Text style={styles.sectionTitle}>Description</Text>
           <Text style={styles.description}>
             {item?.description ||
@@ -220,14 +219,14 @@ export const ProductDetailScreen = ({ route }: any) => {
           </Text>
         </ScrollView>
 
-        
+
         <View
           style={[
             styles.footerRow,
             { paddingBottom: insets?.bottom > 0 ? insets.bottom : hp(1.5) },
           ]}
         >
-          
+
           <TouchableOpacity
             onPress={handleAddToBag}
             activeOpacity={0.8}
@@ -240,7 +239,7 @@ export const ProductDetailScreen = ({ route }: any) => {
             />
           </TouchableOpacity>
 
-          
+
           <TouchableOpacity
             onPress={handleBuyNow}
             activeOpacity={0.8}
@@ -257,7 +256,7 @@ export const ProductDetailScreen = ({ route }: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.background, 
+    backgroundColor: COLORS.background,
   },
   imageSection: {
     height: hp(52),
@@ -311,10 +310,10 @@ const styles = StyleSheet.create({
     marginHorizontal: wp(1.2),
   },
   dotActive: {
-    backgroundColor: COLORS.primary, 
+    backgroundColor: COLORS.primary,
   },
   detailsSection: {
-    
+
     position: "absolute",
     bottom: 0,
     backgroundColor: COLORS.white,

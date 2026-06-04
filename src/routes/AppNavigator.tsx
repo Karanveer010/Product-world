@@ -14,11 +14,28 @@ export const AppNavigator = () => {
     (state: RootState) => state.furniture.onboardingCompleted
   );
 
-  const linking = {
+  // const linking = {
+  //   prefixes: [
+  //     'productworld://',
+  //     'https://io.pixelsoftwares.com',
+  //   ],
+  // };
+
+  const linking: any = {
     prefixes: [
       'productworld://',
       'https://io.pixelsoftwares.com',
     ],
+    config: {
+      screens: {
+        MainApp: {
+          screens: {
+            Home: 'home',
+          },
+        },
+        ProductDetail: 'product/:id',
+      },
+    },
   };
 
   return (
