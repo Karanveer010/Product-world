@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Product World",
-    "slug": "my-app",
+    "slug": "product-world-new",
     "scheme": "productworld",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,16 +13,7 @@
       "resizeMode": "cover",
       "backgroundColor": "#000000"
     },
-    "ios": {
-      "supportsTablet": true
-    },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/appicon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false,
       "package": "com.karan2344.myapp",
       "intentFilters": [
         {
@@ -42,14 +33,13 @@
         }
       ]
     },
-    "web": {
-      "favicon": "./assets/appicon.png"
-    },
     "extra": {
       "eas": {
-        "projectId": "96338f94-5d06-498c-9d7d-e0fc3177ed9c"
+        "projectId": "211cd5c8-8649-4745-9a73-adc0d1f3a561"
       }
     },
-    "owner": "karan2344"
+    "plugins": [
+      "expo-font"
+    ]
   }
 }

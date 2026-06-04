@@ -46,7 +46,6 @@ export const Button: React.FC<ButtonProps> = React.memo(
 const styles = StyleSheet.create({
   button: {
     backgroundColor: COLORS.primary,
-    paddingVertical: 14,
     paddingHorizontal: 28,
     borderRadius: SIZES.radiusRound,
     alignItems: "center",
@@ -60,7 +59,7 @@ const styles = StyleSheet.create({
   text: {
     color: COLORS.white,
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: "600",
   },
 });
 

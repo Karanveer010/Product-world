@@ -1,20 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./src/redux/store";
 import AppNavigator from "./src/routes/AppNavigator";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
-  const [ready, setReady] = useState(false);
-
+  const linking: any = {
+    prefixes: [
+      'productworld://',
+      'https://io.pixelsoftwares.com',
+    ],
+    config: {
+      screens: {
+        MainApp: {
+          screens: {
+            Home: 'home',
+          },
+        },
+        ProductDetail: 'product/:id',
+      },
+    },
+  };
   return (
     <Provider store={store}>
       <PersistGate
-        loading={null}
+        loading={<> </>}
         persistor={persistor}
-        onBeforeLift={() => setReady(true)}
+        onBeforeLift={() => console.log("Persist loaded")}
       >
-        {ready ? <AppNavigator /> : null}
+        <NavigationContainer linking={linking}>
+          <AppNavigator />
+        </NavigationContainer>
       </PersistGate>
     </Provider>
   );

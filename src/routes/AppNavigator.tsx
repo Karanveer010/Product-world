@@ -1,5 +1,5 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
@@ -21,32 +21,14 @@ export const AppNavigator = () => {
   //   ],
   // };
 
-  const linking: any = {
-    prefixes: [
-      'productworld://',
-      'https://io.pixelsoftwares.com',
-    ],
-    config: {
-      screens: {
-        MainApp: {
-          screens: {
-            Home: 'home',
-          },
-        },
-        ProductDetail: 'product/:id',
-      },
-    },
-  };
+
   const initialRouteName = onboardingCompleted ? "MainApp" : "Intro";
   return (
-    <NavigationContainer linking={linking}>
-      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={initialRouteName}>
-        <Stack.Screen name="Intro" component={IntroScreen} />
-        <Stack.Screen name="MainApp" component={TabNavigator} />
-        <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
-      </Stack.Navigator>
-
-    </NavigationContainer>
+    <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={initialRouteName}>
+      <Stack.Screen name="Intro" component={IntroScreen} />
+      <Stack.Screen name="MainApp" component={TabNavigator} />
+      <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
+    </Stack.Navigator>
   );
 };
 
