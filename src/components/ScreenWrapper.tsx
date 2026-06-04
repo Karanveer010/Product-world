@@ -58,11 +58,23 @@ export const ScreenWrapper: React.FC<ScreenWrapperProps> = ({
         backgroundColor={statusBarColor}
         translucent={translucent}
       />
+      {isOffline && (
+        <View style={[styles.topBanner, { backgroundColor: COLORS.error, paddingTop: insets.top + 8, paddingBottom: 8 }]}>
+          <Ionicons name="cloud-offline" size={14} color={COLORS.white} />
+          <Text style={styles.topBannerText}>Internet connection off</Text>
+        </View>
+      )}
+      {showOnlineToast && (
+        <View style={[styles.topBanner, { backgroundColor: COLORS.success, paddingTop: insets.top + 8, paddingBottom: 8 }]}>
+          <Ionicons name="checkmark-circle" size={14} color={COLORS.white} />
+          <Text style={styles.topBannerText}>Internet connection back</Text>
+        </View>
+      )}
       <View
         style={[
           styles.inner,
           {
-            paddingTop: disableTopInset ? 0 : insets.top,
+            paddingTop: (isOffline || showOnlineToast) ? 0 : (disableTopInset ? 0 : insets.top),
             paddingBottom: disableBottomInset ? 0 : insets.bottom,
           },
           containerStyle,
@@ -70,18 +82,6 @@ export const ScreenWrapper: React.FC<ScreenWrapperProps> = ({
       >
         {children}
       </View>
-      {isOffline && (
-        <View style={[styles.offlineToast, { bottom: insets.bottom + 16 }]}>
-          <Ionicons name="cloud-offline" size={16} color={COLORS.white} />
-          <Text style={styles.offlineToastText}>Internet connection off</Text>
-        </View>
-      )}
-      {showOnlineToast && (
-        <View style={[styles.onlineToast, { bottom: insets.bottom + 16 }]}>
-          <Ionicons name="checkmark-circle" size={16} color={COLORS.white} />
-          <Text style={styles.onlineToastText}>Internet connection back</Text>
-        </View>
-      )}
     </View>
   );
 };
@@ -95,43 +95,18 @@ const styles = StyleSheet.create({
     flex: 1,
 
   },
-  offlineToast: {
-    position: "absolute",
-    left: 24,
-    right: 24,
-    backgroundColor: "#ef4444",
+  topBanner: {
+    width: "100%",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 12,
-    borderRadius: SIZES.radiusMd,
-    ...SHADOWS.medium,
     zIndex: 9999,
   },
-  offlineToastText: {
+  topBannerText: {
     color: COLORS.white,
     fontWeight: "bold",
-    fontSize: 14,
-    marginLeft: 8,
-  },
-  onlineToast: {
-    position: "absolute",
-    left: 24,
-    right: 24,
-    backgroundColor: COLORS.success,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 12,
-    borderRadius: SIZES.radiusMd,
-    ...SHADOWS.medium,
-    zIndex: 9999,
-  },
-  onlineToastText: {
-    color: COLORS.white,
-    fontWeight: "bold",
-    fontSize: 14,
-    marginLeft: 8,
+    fontSize: 13,
+    marginLeft: 6,
   },
 });
 
